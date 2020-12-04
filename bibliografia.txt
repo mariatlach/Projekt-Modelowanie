@@ -1,1 +1,6 @@
-www.google.com
+Bibliografia:
+grafika:
+https://eszkola.pl/fizyka/fotokomorka-4243.html (schemat fotokomórki)
+https://www.leroymerlin.pl/zabezpieczenie-domu/alarmy-monitoring/inteligentny-dom/fotokomorka-ph200-nice-home,p469415,l2318.html (przykładowa fotokomórka)
+dodatkowe biblioteki Python:
+https://pypi.org/project/Pillow/ (Pillow - dodawanie oraz edycja grafiki)
