@@ -1,6 +1,14 @@
-Bibliografia:
-grafika:
+﻿Bibliografia:
+- dane wykorzystane do stworzenia bibliotek (dla powtarzających się danych użyto zaokrąglonej średniej wartości):
+http://hyperphysics.phy-astr.gsu.edu/hbase/Tables/photoelec.html
+http://if.pk.edu.pl/tabele/PrWyj.htm
+https://belfer.net.pl/wp-content/uploads/2019/02/Tabela_Fizyka_Praca-wyjscia.pdf
+https://en.wikipedia.org/wiki/Visible_spectrum
+https://epodreczniki.pl/a/podzial-fal-elektromagnetycznych-oraz-ich-zastosowanie/DjHMWAXOt
+
+- grafika:
 https://eszkola.pl/fizyka/fotokomorka-4243.html (schemat fotokomórki)
 https://www.leroymerlin.pl/zabezpieczenie-domu/alarmy-monitoring/inteligentny-dom/fotokomorka-ph200-nice-home,p469415,l2318.html (przykładowa fotokomórka)
-dodatkowe biblioteki Python:
+
+- dodatkowe biblioteki Python:
 https://pypi.org/project/Pillow/ (Pillow - dodawanie oraz edycja grafiki)

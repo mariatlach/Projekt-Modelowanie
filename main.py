@@ -12,7 +12,6 @@ draw2 = ImageDraw.Draw(im2)
 draw2.text(xy=(20, 20), text='Uproszczony schemat fotokomórki:', fill=(0, 0, 0), font=font_type, encoding='utf-8')
 im.show()
 im2.show()
-
 font_type = ImageFont.truetype('arial.ttf', 40)
 font_type1 = ImageFont.truetype('arial.ttf', 60)
 im3 = Image.open('wzory.jpg')
@@ -25,9 +24,24 @@ draw.text(xy=(20, 650), text='Nasz program obliczy maksymalną energię kinetycz
 draw.text(xy=(20, 1200), text='Oraz częstotliwość graniczną wedle następującego wzoru:', fill=(0, 0, 0), font=font_type, encoding='utf-8')
 im3.show()
 
+print("Czy chcesz wyświetlić, którąć z bibliotek?")
+bibl1 = str(input())
+bibl1= bibl1.lower()
+if bibl1 == 'tak':
+    print("Jeśli chcesz wyświetlić bibliotekę metali wpisz: 'metale', jeśli częstotliwości promieniowań, wpisz: 'fale'; Jeżeli chcesz wyświtlić obie biblioteki, wpisz 'obie'")
+    ktora = str(input())
+    if ktora == 'metale':
+        functions.popupth('bibliotekametalenice.txt', "Biblioteka prac wyjścia dla wybranych metali:")
+    elif ktora == 'fale':
+        functions.popupth('bibliotekafale.txt', "Biblioteka cdługości fal dla odpowiednich promieniowań:")
+    elif ktora == 'obie':
+        functions.popupth('bibliotekametalenice.txt', "Biblioteka prac wyjścia dla wybranych metali:")
+        functions.popupth('bibliotekafale.txt', "Biblioteka cdługości fal dla odpowiednich promieniowań:")
+functions.zjawisko()
 
 
 print('Czy chciał*bys wyswietlic bibliografie?')
 bibl = str(input())
-if bibl == 'tak' or bibl == 'TAK' or bibl =='Tak':
+bibl = bibl.lower()
+if bibl == 'tak':
     functions.popupth('bibliografia.txt', "Bibliografia")

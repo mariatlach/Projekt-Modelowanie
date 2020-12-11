@@ -1,0 +1,15 @@
+Fale radiowe: powyżej 1 m
+Mikrofale: 1 mm - 1 m
+Podczerwień: 700 nm - 1 mm
+Światło widzialne: 380 nm - 700 nm
+Ultrafiolet: 10 nm - 380 nm
+Promieniowanie rentgenowskie: 5 pm - 10 nm
+
+Gdzie dla światła widzialnego obowiązuje następujący zakres:
+Fiolet: 380 nm - 450 nm
+Niebieski: 450 nm - 485 nm
+Jasnoniebieski: 485 nm - 500 nm
+Zielony: 500 nm - 565 nm
+Żółty: 565 nm - 590 nm
+Pomarańczowy: 590 nm - 625 nm
+Czerwony: 625 nm - 700 nm
