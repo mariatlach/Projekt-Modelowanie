@@ -6,8 +6,10 @@ import random
 import numpy as np
 import matplotlib.pyplot as plt
 from tabulate import tabulate
+from PIL import ImageDraw, ImageFont
+import PIL.Image
 import turtle
-from PIL import Image, ImageDraw, ImageFont
+from tkinter import *
 
 def popupth(nazwa, tytul):
     popup = ''
@@ -103,7 +105,7 @@ def dajfale():
         rodzaj = str(input())
         rodzaj = rodzaj.lower()
         if rodzaj == 'tak':
-            print("Aby otrzymać fale radiowe, wpisz 'radiowe', odpowiedznio: mikorfale = 'mikrofale', podczerwień = 'podczerwien', światło widzialne = 'widzialne', ultrafiolet = 'ultrafiolet', promieniowanie rentgenowskie = 'rentgenowskie'")
+            print("Aby otrzymać fale radiowe, wpisz 'radiowe', analogicznie: mikorfale = 'mikrofale', podczerwień = 'podczerwien', światło widzialne = 'widzialne', ultrafiolet = 'ultrafiolet', promieniowanie rentgenowskie = 'rentgenowskie'")
             kon = str(input())
             kon = kon.lower()
             if kon == 'radiowe':
@@ -189,7 +191,7 @@ def wykresy():
     plt.yticks([])
     kolor = ("red", "blue")
     grubosclinii = (2, 2)
-    etykiety = ("$Uh=h/e(f-f0); Uh(f)$", "$Ek=h*(f-f0); Uh(f)$")
+    etykiety = ("$Uh=h/e(f-f0); Uh(f)$", "$Ek=h(f-f0); Uh(f)$")
     for i in range(2):
         listafunkcji[i].plot(f, funkcje[i], color=kolor[i], lw=grubosclinii[i])
         listafunkcji[i].set_title(etykiety[i])
@@ -202,8 +204,8 @@ def tabletable(variablist):
     print(tabulate(listfromarr, headers=['L.Prób', 'Metal', 'cz.gran[Hz]', 'Dł.fali[nm]', 'Ek[J]', 'v[m/s]']))
 
 def obrazki():
-    im = Image.open('nice.jpg')
-    im2 = Image.open('fotokomorka.jpg')
+    im = PIL.Image.open('nice.jpg')
+    im2 = PIL.Image.open('fotokomorka.jpg')
     font_type = ImageFont.truetype('arial.ttf', 19)
     draw = ImageDraw.Draw(im)
     draw.text(xy=(30, 30), text='Przykładowa fotokomórka:', fill=(0, 0, 0), font=font_type, encoding='utf-8')
@@ -213,7 +215,7 @@ def obrazki():
     im2.show()
     font_type = ImageFont.truetype('arial.ttf', 40)
     font_type1 = ImageFont.truetype('arial.ttf', 60)
-    im3 = Image.open('wzory.jpg')
+    im3 = PIL.Image.open('wzory.jpg')
     draw = ImageDraw.Draw(im3)
     draw.text(xy=(20, 50), text='OPIS MATEMATYCZNY', fill=(0, 0, 0), font=font_type1, encoding='utf-8')
     draw = ImageDraw.Draw(im3)
@@ -311,42 +313,48 @@ def animacja():
         e2.speed(0)
         e2.setposition(0, 0)
 
-        klik.write("Po zakończeniu animacji kliknij w ekran aby odtworzyć ponownie", font=font, align="center")
+        klik.write("Kliknij po zakończeniu animacji aby odtworzyć ją ponownie", font=font, align="center")
 
-        while True:
-            foton2.sety(foton2.ycor())
-            e2.sety(e2.ycor())
-            e2.left(45)
-            foton2.right(45)
+        try:
             while True:
-                foton2.forward(3)
-                if foton2.distance(metal) < 10:
-                    foton2.color("white")
-                    foton2.shapesize(0.01, 0.01)
-                    napisfoton.clear()
-                    e2.color("blue")
-                    napise.setposition(120, 220)
-                    napise.write("Elektron", font=font)
-                    while True:
-                        e2.forward(2.5)
-                        if e2.distance(metal) > 600:
-                            napise.clear()
+                foton2.sety(foton2.ycor())
+                e2.sety(e2.ycor())
+                e2.left(45)
+                foton2.right(45)
+                while True:
+                    window.update()
+                    foton2.forward(3)
+                    if foton2.distance(metal) < 10:
+                        foton2.color("white")
+                        foton2.shapesize(0.01, 0.01)
+                        napisfoton.clear()
+                        e2.color("blue")
+                        napise.setposition(120, 220)
+                        napise.write("Elektron", font=font)
+                        while True:
+                            window.update()
+                            e2.forward(2.5)
+                            if e2.distance(metal) > 585:
+                                napise.clear()
+        except TclError:
+            pass
 
     turtle.onscreenclick(fxn, 1)
 
-    while True:
-        metal.sety(metal.ycor())
-        napismetal.sety(napismetal.ycor())
-        foton.sety(foton.ycor()+foton.dy)
-        napisfoton.sety(napisfoton.ycor())
-        e.sety(e.ycor())
-        napise.sety(napise.ycor())
-        if foton.distance(metal) < 10:
-            foton.dy = 0
-            foton.color("white")
-            foton.shapesize(0.01, 0.01)
-            napisfoton.clear()
-            e.dy = 7
-            e.color("blue")
-            e.sety(e.ycor() + e.dy)
-            napise.write("Elektron", font=font)
+    try:
+        while True:
+            window.update()
+            metal.sety(metal.ycor())
+            foton.sety(foton.ycor()+foton.dy)
+            e.sety(e.ycor())
+            if foton.distance(metal) < 10:
+                foton.dy = 0
+                foton.color("white")
+                foton.shapesize(0.01, 0.01)
+                napisfoton.clear()
+                e.dy = 7
+                e.color("blue")
+                e.sety(e.ycor() + e.dy)
+                napise.write("Elektron", font=font)
+    except TclError:
+        pass

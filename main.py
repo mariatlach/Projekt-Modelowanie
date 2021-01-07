@@ -2,15 +2,15 @@ import functions
 
 functions.popupth('fotokom.txt', "Wyjasnienie")
 
-functions.popupth('hamujace.txt', "Napięcie hamujące")
+functions.popupth('program.txt', "Działanie programu")
 
 functions.wykresy()
 
-#functions.animacja()
+functions.animacja()
 
 functions.obrazki()
 
-print("Czy chcesz wyświetlić, którąć z bibliotek?")
+print("Czy chcesz wyświetlić, którąś z bibliotek?")
 bibl1 = str(input())
 bibl1 = bibl1.lower()
 if bibl1 == 'tak':
@@ -25,7 +25,7 @@ if bibl1 == 'tak':
         functions.popupth('bibliotekafale.txt', "Biblioteka cdługości fal dla odpowiednich promieniowań:")
 functions.zjawisko(1)
 
-print('Czy chciałbys wyswietlic bibliografie?')
+print('Czy chciał*bys wyswietlic bibliografie?')
 bibl = str(input())
 bibl = bibl.lower()
 if bibl == 'tak':
