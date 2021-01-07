@@ -1,0 +1,4 @@
+Kiedy poznaliśmy już zasadę działania zjawiska fotoelektrycznego, dobrze jest przyjrzeć się fotokomórce.
+Wprowadźmy pojęcie napięcia hamowania Uh - jest to napięcie, dla którego fotoprąd będzie równy zeru i dla którego nawet najszybsze elektrony zostaną zahamowane. Napięcie hamujące jest niezależne od częstotliwości padającego promieniowania, ale zależne od jego częstotliwości (w sposób liniowy, co zaraz zostanie pokazane na wykresie)
+Wielkość napięcia hamowania możemy zdefiniować jako:
+Ek=eU  =>  hv=W+eU
