@@ -251,110 +251,63 @@ def animacja():
     napismetal.setposition(150, 0)
     napismetal.write("Metal", font=font)
 
-    foton = turtle.Turtle()
-    foton.shape("circle")
-    foton.color("yellow")
-    foton.shapesize(0.5, 0.5)
-    foton.penup()
-    foton.speed(0)
-    foton.setposition(0, 220)
-    foton.dy = -8
+    foton2 = turtle.Turtle()
+    foton2.shape("circle")
+    foton2.color("yellow")
+    foton2.shapesize(0.5, 0.5)
+    foton2.penup()
+    foton2.speed(0)
+    foton2.setposition(-220, 220)
+    foton2.right(45)
 
     napisfoton = turtle.Turtle()
     napisfoton.hideturtle()
     napisfoton.penup()
     napisfoton.color("yellow")
-    napisfoton.setposition(30, 250)
+    napisfoton.setposition(-190, 220)
     napisfoton.write("Foton", font=font)
 
-    e = turtle.Turtle()
-    e.shape("circle")
-    e.color("white")
-    e.penup()
-    e.speed(0)
-    e.setposition(0, 0)
+    e2 = turtle.Turtle()
+    e2.shape("circle")
+    e2.color("white")
+    e2.penup()
+    e2.speed(0)
+    e2.setposition(0, 0)
+    e2.left(45)
 
     napise = turtle.Turtle()
     napise.hideturtle()
     napise.penup()
     napise.color("blue")
-    napise.setposition(30, 250)
+    napise.setposition(120, 220)
 
     klik = turtle.Turtle()
     klik.hideturtle()
     klik.penup()
     klik.color("white")
     klik.setposition(0, -220)
-    klik.write("Kliknij w ekran aby foton uderzył po kątem", font=font, align="center")
-
-    def fxn(x, y):
-        foton.hideturtle()
-        foton.setposition(200, 200)
-        napisfoton.clear()
-        e.hideturtle()
-        napise.clear()
-        klik.clear()
-
-        foton2 = turtle.Turtle()
-        foton2.shape("circle")
-        foton2.color("yellow")
-        foton2.shapesize(0.5, 0.5)
-        foton2.penup()
-        foton2.speed(0)
-        foton2.setposition(-220, 220)
-
-        napisfoton.setposition(-190, 220)
-        napisfoton.write("Foton", font=font)
-
-        e2 = turtle.Turtle()
-        e2.shape("circle")
-        e2.color("white")
-        e2.penup()
-        e2.speed(0)
-        e2.setposition(0, 0)
-
-        klik.write("Kliknij po zakończeniu animacji aby odtworzyć ją ponownie", font=font, align="center")
-
-        try:
-            while True:
-                foton2.sety(foton2.ycor())
-                e2.sety(e2.ycor())
-                e2.left(45)
-                foton2.right(45)
-                while True:
-                    window.update()
-                    foton2.forward(3)
-                    if foton2.distance(metal) < 10:
-                        foton2.color("white")
-                        foton2.shapesize(0.01, 0.01)
-                        napisfoton.clear()
-                        e2.color("blue")
-                        napise.setposition(120, 220)
-                        napise.write("Elektron", font=font)
-                        while True:
-                            window.update()
-                            e2.forward(2.5)
-                            if e2.distance(metal) > 585:
-                                napise.clear()
-        except TclError:
-            pass
-
-    turtle.onscreenclick(fxn, 1)
+    klik.write("Foton uderza w płytkę metalu i wybija elektron;", font=font, align="center")
+    klik.setposition(0, -240)
+    klik.write("zjawisko fotoelektrzyczne zachodzi", font=font, align="center")
 
     try:
         while True:
             window.update()
-            metal.sety(metal.ycor())
-            foton.sety(foton.ycor()+foton.dy)
-            e.sety(e.ycor())
-            if foton.distance(metal) < 10:
-                foton.dy = 0
-                foton.color("white")
-                foton.shapesize(0.01, 0.01)
-                napisfoton.clear()
-                e.dy = 7
-                e.color("blue")
-                e.sety(e.ycor() + e.dy)
-                napise.write("Elektron", font=font)
+            foton2.sety(foton2.ycor())
+            e2.sety(e2.ycor())
+            while True:
+                if foton2.distance(metal) > 10:
+                    foton2.forward(4)
+                if foton2.distance(metal) < 10:
+                    foton2.color("white")
+                    foton2.shapesize(0.01, 0.01)
+                    napisfoton.clear()
+                    e2.color("blue")
+                    napise.setposition(120, 220)
+                    napise.write("Elektron", font=font)
+                    if e2.distance(metal) > 585:
+                        napise.clear()
+                    while True:
+                        e2.forward(4)
     except TclError:
         pass
